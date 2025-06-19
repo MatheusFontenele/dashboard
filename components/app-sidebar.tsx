@@ -86,7 +86,7 @@ const secondaryItems = [
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon" {...props} color="sidebar-primary">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -96,7 +96,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <TrendingUp className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">Dashboard Pro</span>
+                  <span className="truncate font-semibold">GDESP</span>
                   <span className="truncate text-xs">Analytics & Reports</span>
                 </div>
               </a>
