@@ -26,10 +26,10 @@ export function Charts() {
           <CardTitle>Vendas Mensais</CardTitle>
           <CardDescription>Evolução das vendas nos últimos 6 meses</CardDescription>
         </CardHeader>
-        <CardContent className="pl-2">
+        <CardContent className="">
           <div className="space-y-4">
             {salesData.map((item, index) => (
-              <div key={index} className="flex items-center space-x-4">
+              <div key={index} className="flex items-center">
                 <div className="w-12 text-sm font-medium">{item.month}</div>
                 <div className="flex-1">
                   <div className="h-8 bg-muted rounded-md relative overflow-hidden">

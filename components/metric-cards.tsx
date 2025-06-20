@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { TrendingUp, TrendingDown, Users, ShoppingCart, CreditCard, Activity } from "lucide-react"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { TrendingUp, TrendingDown, Users, ShoppingCart, CreditCard, Activity, ArrowRight } from "lucide-react"
 
 const metrics = [
   {
@@ -8,6 +8,7 @@ const metrics = [
     change: "+20.1%",
     trend: "up",
     icon: CreditCard,
+    color: "bg-green-500",
   },
   {
     title: "Vendas",
@@ -15,6 +16,7 @@ const metrics = [
     change: "+180.1%",
     trend: "up",
     icon: ShoppingCart,
+    color: "bg-blue-500",
   },
   {
     title: "Clientes Ativos",
@@ -22,6 +24,7 @@ const metrics = [
     change: "+19%",
     trend: "up",
     icon: Users,
+    color: "bg-yellow-500",
   },
   {
     title: "Taxa de Conversão",
@@ -29,6 +32,7 @@ const metrics = [
     change: "-4.3%",
     trend: "down",
     icon: Activity,
+    color: "bg-red-500",
   },
 ]
 
@@ -36,23 +40,31 @@ export function MetricCards() {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {metrics.map((metric, index) => (
-        <Card key={index}>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">{metric.title}</CardTitle>
-            <metric.icon className="h-4 w-4 text-muted-foreground" />
+        <Card key={index} className={`${metric.color} overflow-hidden flex flex-col justify-between`}>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1 pt-4">
+            <CardTitle className="text-sm font-medium text-white">{metric.title}</CardTitle>
+            <metric.icon className="h-4 w-4 text-muted-foreground" color="white"/>
           </CardHeader>
-          <CardContent>
+          <CardContent className="text-white">
             <div className="text-2xl font-bold">{metric.value}</div>
-            <p className="text-xs text-muted-foreground flex items-center gap-1">
+            <p className="text-xs text-muted-foreground flex items-center gap-1 text-gray-200">
               {metric.trend === "up" ? (
-                <TrendingUp className="h-3 w-3 text-green-500" />
+                <TrendingUp className="h-3 w-3 text-gray-200" />
               ) : (
-                <TrendingDown className="h-3 w-3 text-red-500" />
+                <TrendingDown className="h-3 w-3 text-gray-200" />
               )}
-              <span className={metric.trend === "up" ? "text-green-500" : "text-red-500"}>{metric.change}</span> em
-              relação ao mês passado
+              <span className={metric.trend === "up" ? "text-gray-200" : "text-gray-200"}>{metric.change} em
+              relação ao mês passado</span>
             </p>
           </CardContent>
+          <CardFooter className={`text-xs text-white bg-black/20 py-2`}> 
+            <a href="" className="flex-1">
+              <div className="justify-between flex items-center ">
+                <span>Ver mais</span>
+                <ArrowRight className="inline h-3 w-3" />
+              </div>
+            </a>
+          </CardFooter>
         </Card>
       ))}
     </div>

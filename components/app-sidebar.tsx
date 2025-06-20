@@ -64,7 +64,7 @@ const items = [
 const secondaryItems = [
   {
     title: "Inbox",
-    url: "#",
+    url: "/inbox",
     icon: Inbox,
   },
   {
@@ -86,7 +86,7 @@ const secondaryItems = [
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props} color="sidebar-primary">
+    <Sidebar collapsible="icon" {...props} className="bg-sidebar pb-4">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
